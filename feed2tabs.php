@@ -6,7 +6,7 @@
 Plugin Name: Feed2Tabs
 Plugin URI: http://feed2tabs.com/plugins/wordpress/
 Description: In addition to link bundling services <a href="http://brief.ly/" target="_blank" ><em>Brief.ly</em></a>, <a href="http://links2.me/" target="_blank" ><em>Links2.Me</em></a>, <a href="http://many.at/" target="_blank" ><em>Many.at</em></a>, Feed2Tabs plugin automatically opens the most recent posts from your RSS feed in the tabs. If you also want your visitors to be able to open all reference in each page with one click, consider installing Links2Tabs plugin.
-Version: 0.0.1
+Version: 0.0.2
 Author: Name.ly
 Author URI: http://name.ly/
 License: GPLv2 or later

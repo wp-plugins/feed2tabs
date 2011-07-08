@@ -2,9 +2,9 @@
 Contributors: Name.ly, Namely
 Donate link: http://feed2tabs.com/
 Tags: atom, feed, feeds, links, rss, widget, widgets
-Requires at least: 2.8
-Tested up to: 3.1.4
-Stable tag: 0.0.1
+Requires at least: 3.0
+Tested up to: 3.2
+Stable tag: 0.0.2
 License: GPLv2 or later
 
 Feed2Tabs allows adding widgets and shortcodes that will automatically open recent feed items in tabs with just one single click.
@@ -116,12 +116,18 @@ The complete list can be found [here](http://supportedfeedtypes.feed2tabs.com/).
 * Initial version.
 * Created and tested.
 
+= 0.0.2 =
+* Added a note that Wordpress 3.0 is the minimal version.
+
 
 
 == Upgrade Notice ==
 
 = 0.0.1 =
 This is a great plugin, give it a try.
+
+= 0.0.2 =
+Users using WP below 3.0 should upgrade.
 
 
 
