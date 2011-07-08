@@ -6,7 +6,7 @@
 Plugin Name: Feed2Tabs
 Plugin URI: http://feed2tabs.com/plugins/wordpress/
 Description: In addition to link bundling services <a href="http://brief.ly/" target="_blank" ><em>Brief.ly</em></a>, <a href="http://links2.me/" target="_blank" ><em>Links2.Me</em></a>, <a href="http://many.at/" target="_blank" ><em>Many.at</em></a>, Feed2Tabs plugin automatically opens the most recent posts from your RSS feed in the tabs. If you also want your visitors to be able to open all reference in each page with one click, consider installing Links2Tabs plugin.
-Version: 0.0.2
+Version: 0.0.3
 Author: Name.ly
 Author URI: http://name.ly/
 License: GPLv2 or later
@@ -88,7 +88,7 @@ class feed2tabs_widget extends WP_Widget {
 		);
 
 		/* Widget control settings. */
-		$control_ops = array ( 'id_base' => 'feed2tabs-widget', 'width' => 505, );
+		$control_ops = array ( 'id_base' => 'feed2tabs-widget', 'width' => 200, );
 
 		/* Create the widget. */
 		$this->WP_Widget ( 'feed2tabs-widget', __ ( 'Feed2Tabs', 'feed2tabs' ), $widget_ops, $control_ops );
@@ -122,14 +122,14 @@ class feed2tabs_widget extends WP_Widget {
 		<!-- Widget Title -->
 		<p>
 			<label for="<?php echo $this->get_field_id ( 'title' ); ?>"><?php _e ( 'Title:', 'feed2tabs' ); ?></label><br />
-			<input value="<?php echo $instance ['title']; ?>" id="<?php echo $this->get_field_id ( 'title' ); ?>" name="<?php echo $this->get_field_name ( 'title' ); ?>" size="80" /><br />
+			<input value="<?php echo $instance ['title']; ?>" id="<?php echo $this->get_field_id ( 'title' ); ?>" name="<?php echo $this->get_field_name ( 'title' ); ?>" class="widefat" /><br />
 			<small><?php _e ( 'Leave blank for none.', 'feed2tabs' ); ?></small>
 		</p>
 		
 		<!-- Feed Source URL -->
 		<p>
 			<label for="<?php echo $this->get_field_id ( 'source' ); ?>"><?php echo str_replace ( '%feed%', $site_feed_link, __ ( 'Feed URL:', 'feed2tabs' ) ); ?></label><br />
-			<input value="<?php echo $instance ['source']; ?>" id="<?php echo $this->get_field_id ( 'source' ); ?>" name="<?php echo $this->get_field_name ( 'source' ); ?>" size="80" /><br />
+			<input value="<?php echo $instance ['source']; ?>" id="<?php echo $this->get_field_id ( 'source' ); ?>" name="<?php echo $this->get_field_name ( 'source' ); ?>" class="widefat" /><br />
 			<small><?php echo str_replace ( '%feed%', $site_feed_link, __ ( 'Leave blank to use this blog\'s feed %feed% as the source.', 'feed2tabs' ) ); ?><br />
 			<?php _e ( 'Else, provide an address of any valid feed (Atom, RSS, XML, et al) you want to open.', 'feed2tabs' ); ?><br />
 			<?php echo __ ( 'You can configure how many items your feed publishes in', 'feed2tabs' ) . ' <a href="' . get_site_url () . '/wp-admin/options-reading.php" >' . __ ( 'Reading Settings', 'feed2tabs' ) . '</a>.'; ?></small>
@@ -138,14 +138,14 @@ class feed2tabs_widget extends WP_Widget {
 		<!-- ToC Caption -->
 		<p>
 			<label for="<?php echo $this->get_field_id ( 'toc' ); ?>"><?php _e ( 'Table of Contents:', 'feed2tabs' ); ?></label><br />
-			<input value="<?php echo $instance ['toc']; ?>" id="<?php echo $this->get_field_id ( 'toc' ); ?>" name="<?php echo $this->get_field_name ( 'toc' ); ?>" size="80" /><br />
+			<input value="<?php echo $instance ['toc']; ?>" id="<?php echo $this->get_field_id ( 'toc' ); ?>" name="<?php echo $this->get_field_name ( 'toc' ); ?>" class="widefat" /><br />
 			<small><?php _e ( 'Caption of the Table of Contents. Set to <code>off</code> to hide the ToC.', 'feed2tabs' ); ?></small>
 		</p>
 		
 		<!-- Max Number of Items -->
 		<p><?php
 			echo '<label for="' . $this->get_field_id ( 'numposts' ) . '">' . __ ( 'Limit the number of shown feed items to:', 'feed2tabs' ) . '</label><br />' . NEW_LINE;
-			echo '<select name="' . $this->get_field_name ( 'numposts' ) . '" id="' . $this->get_field_id ( 'numposts' ) . '" >' . NEW_LINE;
+			echo '<select name="' . $this->get_field_name ( 'numposts' ) . '" id="' . $this->get_field_id ( 'numposts' ) . '" class="widefat" >' . NEW_LINE;
 			for ( $i=1; $i<=NAME_LY_MAX_NUMBER_OF_TABS; $i++ ) {
 				echo '  <option ' . ( $i == $instance [ 'numposts' ] ? 'selected ' : '' ) . 'value="' . $i . '">' . $i . '</option>' . NEW_LINE;
 			} // end of for ( $i=1; $i<=NAME_LY_MAX_NUMBER_OF_TABS; $i++ )
@@ -156,7 +156,7 @@ class feed2tabs_widget extends WP_Widget {
 		<!-- Target -->
 		<p><?php
 			echo '<label for="' . $this->get_field_id ( 'target' ) . '">' . __ ( 'Link destination:', 'feed2tabs' ) . '</label><br />' . NEW_LINE;
-			echo '<select name="' . $this->get_field_name ( 'target' ) . '" id="' . $this->get_field_id ( 'target' ) . '" >' . NEW_LINE;
+			echo '<select name="' . $this->get_field_name ( 'target' ) . '" id="' . $this->get_field_id ( 'target' ) . '" class="widefat" >' . NEW_LINE;
 			echo '  <option ' . ( '_blank' == $instance ['target'] ? 'selected ' : '' ) . 'value="_blank">' . __ (  'New Window', 'feed2tabs' ) . '</option>' . NEW_LINE;
 			echo '  <option ' . ( '_blank' != $instance ['target'] ? 'selected ' : '' ) . 'value="_same">' . __ (  'Same Window', 'feed2tabs' ) . '</option>' . NEW_LINE;
 			echo '</select><br />' . NEW_LINE;
@@ -166,16 +166,16 @@ class feed2tabs_widget extends WP_Widget {
 		<!-- Widget Description -->
 		<p>
 			<label for="<?php echo $this->get_field_id ( 'description' ); ?>"><?php _e ( 'Description:', 'feed2tabs' ); ?></label><br />
-			<input value="<?php echo $instance ['description']; ?>" id="<?php echo $this->get_field_id ( 'description' ); ?>" name="<?php echo $this->get_field_name ( 'description' ); ?>" size="80" /><br />
+			<input value="<?php echo $instance ['description']; ?>" id="<?php echo $this->get_field_id ( 'description' ); ?>" name="<?php echo $this->get_field_name ( 'description' ); ?>" class="widefat" /><br />
 			<small><?php _e ( 'Text to appear as the icon description.', 'feed2tabs' ); ?></small>
 		</p>
 
 		<!-- Custom API base URL -->
 		<p><?php
 			echo '<label for="' . $this->get_field_id( 'custom_api_base' ) . '">' . __ ( 'Custom API base URL (so that the advanced users have extra playground):', 'feed2tabs' ) . '</label><br />' . NEW_LINE;
-			echo '<input value="' . $instance [ 'custom_api_base' ] . '" id="' . $this->get_field_id ( 'custom_api_base' ) . '" name="' . $this->get_field_name ( 'custom_api_base' ) . '" size="80" /><br />' . NEW_LINE;
+			echo '<input value="' . $instance [ 'custom_api_base' ] . '" id="' . $this->get_field_id ( 'custom_api_base' ) . '" name="' . $this->get_field_name ( 'custom_api_base' ) . '" class="widefat" /><br />' . NEW_LINE;
 			echo '<small>' . __ ( 'You can choose from a predefined API base', 'feed2tabs' ) . '</small>' . NEW_LINE;
-			echo '<select name="' . $this->get_field_name ( 'api_base' ) . '" id="' . $this->get_field_id ( 'api_base' ) . '" onClick="document.getElementById(\'' . $this->get_field_id( 'custom_api_base' ) . '\').value=this.value;" >' . NEW_LINE;
+			echo '<select name="' . $this->get_field_name ( 'api_base' ) . '" id="' . $this->get_field_id ( 'api_base' ) . '" onClick="document.getElementById(\'' . $this->get_field_id( 'custom_api_base' ) . '\').value=this.value;" class="widefat" style="width:50%;" >' . NEW_LINE;
 			foreach ( $feed2tabs_api_default_bases as $key => $api_default_base ) {
 				echo '  <option ' . ( false !== stripos ( $instance [ 'custom_api_base' ], $api_default_base ) ? 'selected ' : '' ) . 'value="' . $api_default_base . '">' . $key . '</option>' . NEW_LINE;
 			} // end of foreach ( $feed2tabs_api_default_bases as $key => $api_default_base )
